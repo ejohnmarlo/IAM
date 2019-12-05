@@ -399,7 +399,9 @@ objectClass: ipHost
 objectClass: simpleSecurityObject
 userPassword: {crypt}idpldap
 
-
+```
+`sudo ldapadd -H ldap:// -x -D "cn=admin,dc=YOUR-DOMAIN,dc=ac,dc=lk" -W -Z -f path_to_file.ldif`
+```
 # test User
 
 dn: uid=testme,ou=people,dc=YOUR-DOMAIN,dc=ac,dc=lk
@@ -453,6 +455,12 @@ sudo ldapsearch -H ldapi:// -Y EXTERNAL -b "cn=schema,cn=config" -s one -Q -LLL 
 ```
  ldapsearch -h localhost -D "cn=admin,dc=YOUR-DOMAIN,dc=ac,dc=lk" -W -b "dc=YOUR-DOMAIN,dc=ac,dc=lk"
  ```
+ 
+* Delete Users
+
+```
+ldapdelete -h localhost -D "cn=admin,dc=YOUR-DOMAIN,dc=ac,dc=lk" -W "cn=Robert Jenkins,ou=People,dc=example,dc=com" "cn=Lisa Jangles,ou=People,dc=example,dc=com"
+```
  
 * View/backup ldap (to ldif)
 
