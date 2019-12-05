@@ -1,6 +1,21 @@
 # IAM
 All about creating Identity Access Management within NREN
 
+Requirements: 6 Virtual Machines
+
+## Steps
+
+* [Jagger RR3 Tool](rr3.md)
+
+* [Install the OpenLDAP Server on Ubuntu 18.04 LTS with eduPerson Schema](Ldap-with-eduperson.md)
+
+* [Shibboleth IdP v3.4.6 on Ubuntu Linux LTS 18.04](Shibboleth3.4.6-Ubuntu18.04.md)
+
+* [Shibboleth SP on Ubuntu Linux LTS 18.04](SP_Ubuntu1804.md)
+
+* [Shibboleth Discovery Service Embedded on Jagger Machine](Setting UP Embedded Discovery Service (EDS).md)
+
+* [Satosa Proxy to Zoom](Satosa-Proxy-to-Zoom.md)
 
 ## If you are an Identity Provider
 Identity Provider is the party who provides authentication and authorization for selected services. They are the owners of the identity data and 
