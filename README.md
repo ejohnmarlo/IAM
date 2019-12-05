@@ -13,7 +13,7 @@ Requirements: 6 Virtual Machines
 
 * [Shibboleth SP on Ubuntu Linux LTS 18.04](SP_Ubuntu1804.md)
 
-* [Shibboleth Discovery Service Embedded on Jagger Machine](Setting UP Embedded Discovery Service (EDS).md)
+* [Shibboleth Discovery Service Embedded on Jagger Machine](SettingUP&nbspEmbedded&nbspDiscovery&nbspService&nbsp(EDS).md)
 
 * [Satosa Proxy to Zoom](Satosa-Proxy-to-Zoom.md)
 
