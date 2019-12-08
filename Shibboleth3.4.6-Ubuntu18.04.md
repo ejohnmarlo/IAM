@@ -933,8 +933,61 @@ Eg:
 	</AttributeRule>
 </AttributeFilterPolicy>
 ```
+```xml
+	  <AttributeFilterPolicy id="example1">
+             <PolicyRequirementRule xsi:type="Requester" value="https://sp-1.learn.ac.lk/shibboleth" />
 
-
+         <AttributeRule attributeID="eduPersonPrincipalName">
+             <PermitValueRule xsi:type="ANY" />
+         </AttributeRule>
+         <AttributeRule attributeID="commonName">
+             <PermitValueRule xsi:type="ANY" />
+         </AttributeRule>
+         <AttributeRule attributeID="uid">
+             <PermitValueRule xsi:type="ANY" />
+         </AttributeRule>
+         <AttributeRule attributeID="email">
+             <PermitValueRule xsi:type="ANY" />
+         </AttributeRule>
+         <AttributeRule attributeID="surname">
+             <PermitValueRule xsi:type="ANY" />
+         </AttributeRule>
+         <AttributeRule attributeID="organizationName">
+             <PermitValueRule xsi:type="ANY" />
+         </AttributeRule>
+         <AttributeRule attributeID="mobile">
+             <PermitValueRule xsi:type="ANY" />
+         </AttributeRule>
+         <AttributeRule attributeID="organizationalUnit">
+             <PermitValueRule xsi:type="ANY" />
+         </AttributeRule>
+         <AttributeRule attributeID="givenName">
+             <PermitValueRule xsi:type="ANY" />
+         </AttributeRule>
+         <AttributeRule attributeID="preferredLanguage">
+             <PermitValueRule xsi:type="ANY" />
+         </AttributeRule>
+         <AttributeRule attributeID="eduPersonAffiliation">
+             <PermitValueRule xsi:type="ANY" />
+         </AttributeRule>
+         <AttributeRule attributeID="eduPersonEntitlement">
+             <PermitValueRule xsi:type="ANY" />
+         </AttributeRule>
+         <AttributeRule attributeID="eduPersonOrgUnitDN">
+             <PermitValueRule xsi:type="ANY" />
+         </AttributeRule>
+         <AttributeRule attributeID="eduPersonPrimaryAffiliation">
+             <PermitValueRule xsi:type="ANY" />
+         </AttributeRule>
+         <AttributeRule attributeID="schacHomeOrganization">
+             <PermitValueRule xsi:type="ANY"/>
+         </AttributeRule>
+         <AttributeRule attributeID="schacHomeOrganizationType">
+             <PermitValueRule xsi:type="ANY"/>
+         </AttributeRule>
+     </AttributeFilterPolicy>
+```
+	  
 ### Customization and Branding
 
 The default install of the IdP login screen will display the Shibbolethlogo, a default prompt for username and password, and text saying that this screen should be customized. It is recommand to customize this page to have the proper institution logo and name. To give a consistent professional look, institution may customize the graphics to match the style of their,
