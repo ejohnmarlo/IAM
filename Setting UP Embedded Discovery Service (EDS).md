@@ -169,3 +169,12 @@ Edit `etc/shibboleth-ds/idpselect_config.js` to change
  ```this.testGUI = true;```
 
 You may disable above after a test
+
+#### Errors
+If you got a *Return Parameter is not whitelisted*, comment out the line in `/etc/shibboleth-ds/idpselect_config.js` in your EDS
+
+```
+//    this.returnWhiteList = [ "^https:\/\/example\.org\/Shibboleth\.sso\/Login.*$" , "^https:\/\/example\.com\/Shibboleth\.sso\/Login.*$" ];
+```
+
+Restart shibd and apache2
