@@ -172,8 +172,9 @@ You may disable above after a test
 
 ### Customization
 #### Add a Login Button
-Edit `/var/www/html/index.php'
-```
+Edit `/var/www/html/index.php`
+
+```html
 <html>
    <head>
      <title>Test Provider - LIAF</title>
