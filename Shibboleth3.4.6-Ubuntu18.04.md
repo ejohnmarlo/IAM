@@ -329,7 +329,7 @@ If you do this installation in Lab setup please skip to implementing https with 
   
 21. Find out the JARs that can be skipped from the scanning:
     * ```cd /opt/shibboleth-idp/```
-    * ```ls webapp/WEB-INF/lib | awk '{print $1",\\"}'```
+    * ```ls edit-webapp/WEB-INF/lib | awk '{print $1",\\"}'```
   
     Insert the output list into ```/etc/tomcat8/catalina.properties``` at the tail of  ```tomcat.util.scan.StandardJarScanFilter.jarsToSkip```
     Make sure about the  ```,\``` symbols
