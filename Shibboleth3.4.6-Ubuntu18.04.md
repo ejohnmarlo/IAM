@@ -566,7 +566,7 @@ All done!
 
 28. Connect the openLDAP to the IdP to allow the authentication of the users:
     * Login to your openLDAP server as root or with sudo permission.
-    * use ```openssl x509 -outform der -in /etc/ssl/certs/ldap_server.pem -out /etc/ssl/certs/ldap_server.crt``` to convert the ldap `.pem` certificate to a `.cert`.
+    * use ```openssl x509 -outform der -in /etc/ssl/certs/ldap_server.pem -out /etc/ssl/certs/ldap-server.crt``` to convert the ldap `.pem` certificate to a `.cert`.
     * copy the ldap_server.crt to  ```/opt/shibboleth-idp/credentials``` of your `idp` server
     * Next, edit ```vim /opt/shibboleth-idp/conf/ldap.properties``` with one of the following solutions.
 
@@ -579,7 +579,7 @@ All done!
        idp.authn.LDAP.useStartTLS = true
        idp.authn.LDAP.useSSL = false
        idp.authn.LDAP.sslConfig = certificateTrust
-       idp.authn.LDAP.trustCertificates = %{idp.home}/credentials/ldap_server.crt
+       idp.authn.LDAP.trustCertificates = %{idp.home}/credentials/ldap-server.crt
        idp.authn.LDAP.baseDN = ou=people,dc=YOUR-DOMAIN,dc=ac,dc=lk
        idp.authn.LDAP.userFilter = (uid={user})
        idp.authn.LDAP.bindDN = cn=admin,dc=YOUR-DOMAIN,dc=ac,dc=lk
@@ -598,7 +598,7 @@ All done!
        idp.authn.LDAP.useStartTLS = false
        idp.authn.LDAP.useSSL = true
        idp.authn.LDAP.sslConfig = certificateTrust
-       idp.authn.LDAP.trustCertificates = %{idp.home}/credentials/ldap_server.crt
+       idp.authn.LDAP.trustCertificates = %{idp.home}/credentials/ldap-server.crt
        idp.authn.LDAP.baseDN = ou=people,dc=YOUR-DOMAIN,dc=ac,dc=lk
        idp.authn.LDAP.userFilter = (uid={user})
        idp.authn.LDAP.bindDN = cn=admin,dc=YOUR-DOMAIN,dc=ac,dc=lk
