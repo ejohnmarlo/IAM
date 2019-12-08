@@ -281,7 +281,7 @@ Email Address []:
   * Provision User: At sign-in
   * On SAML response mapping:
   * Default user type : Pro
-  * Email: urn:oid:1.3.6.1.4.1.5923.1.1.1.6
+  * Email: urn:oid:1.3.6.1.4.1.5923.1.1.1.6 or (recommended) urn:oid:1.3.6.1.4.1.5923.1.1.1.9
   * First name:  urn:oid:2.5.4.42
   * Last Name:  urn:oid:2.5.4.4
   * phonenumber: urn:oid:0.9.2342.19200300.100.1.41 
@@ -291,7 +291,7 @@ Email Address []:
   * Entity ID: `https://proxy-saml.Your-Domain.TLD/Saml2/proxy_saml2_backend.xml`
   * Metadata: `cat meta/backend.xml`
   
-  
+
 ## Final Steps:
 
 1. Release attribute from IDP
@@ -308,6 +308,9 @@ Email Address []:
             <PermitValueRule xsi:type="ANY" />
         </AttributeRule>
         <AttributeRule attributeID="email">
+            <PermitValueRule xsi:type="ANY" />
+        </AttributeRule>
+	<AttributeRule attributeID="zoom">
             <PermitValueRule xsi:type="ANY" />
         </AttributeRule>
         <AttributeRule attributeID="surname">
@@ -358,8 +361,28 @@ Email Address []:
         </AttributeRule>
     </AttributeFilterPolicy>
 ```
+2. Change the Scoped Affiliation Attribute to Email account. Edit `/opt/shibboleth-idp/conf/attribute-resolver-LEARN.xml`
+Comment:
 
-2. Define relaying party at IDP in relaying-party.xml
+```xml
+<AttributeDefinition scope="%{idp.scope}" xsi:type="Scoped" id="eduPersonScopedAffiliation" sourceAttributeID="eduPersonAffiliation">
+        <Dependency ref="myLDAP" />
+        <DisplayName xml:lang="en">Scoped Affiliation</DisplayName>
+        <DisplayDescription xml:lang="en">Affiliation Scoped: Type of affiliation with Home Organization with scope</DisplayDescription>
+        <AttributeEncoder xsi:type="SAML2ScopedString" name="urn:oid:1.3.6.1.4.1.5923.1.1.1.9" friendlyName="eduPersonScopedAffiliation" encodeType="false" />
+    </AttributeDefinition>
+```
+Append:
+```xml
+<AttributeDefinition xsi:type="Simple" id="zoom" sourceAttributeID="mail">
+        <Dependency ref="myLDAP" />
+        <DisplayName xml:lang="en">Zoom ID</DisplayName>
+        <DisplayDescription xml:lang="en">Zoom Personal Email Account</DisplayDescription>
+        <AttributeEncoder xsi:type="SAML2String" name="urn:oid:1.3.6.1.4.1.5923.1.1.1.9" friendlyName="zoom" encodeType="false" />
+</AttributeDefinition>
+```
+
+3. Define relaying party at IDP in relaying-party.xml
 
 ```xml
 <bean parent="RelyingPartyByName" c:relyingPartyIds="https://proxy-saml.Your-Domain.TLD/Saml2/proxy_saml2_backend.xml">
