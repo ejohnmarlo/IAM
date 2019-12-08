@@ -719,6 +719,9 @@ All done!
 	  `<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.YOUR-DOMAIN/idp/profile/Shibboleth/SSO"/>`
 	  
     * Remove all ":8443" from the existing URL (such port is not used anymore)
+	  ```
+	  :%s/.ph:8443/.ph/g
+	  ```
     * Uncomment SingleLogoutService:
       ```xml
           <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://identity.thilinapathirana.xyz/idp/profile/SAML2/Redirect/SLO"/>
@@ -739,6 +742,9 @@ All done!
       `<AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.YOUR-DOMAIN:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>`
 
     * Remove all ":8443" from the existing URL (such port is not used anymore)
+	   ```
+	  :%s/.ph:8443/.ph/g
+	  ```
   * Finally remove all existing commented content from the whole document
 
      
