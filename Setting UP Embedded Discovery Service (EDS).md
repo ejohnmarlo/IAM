@@ -170,7 +170,50 @@ Edit `etc/shibboleth-ds/idpselect_config.js` to change
 
 You may disable above after a test
 
-#### Errors
+### Customization
+#### Add a Login Button
+Edit `/var/www/html/index.php'
+```
+<html>
+   <head>
+     <title>Test Provider - LIAF</title>
+     <meta name="GENERATOR" content="Quanta Plus">
+     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+     <style>
+.button {
+   background-color: #4CAF50; /* Green */
+   border: none;
+   color: white;
+   padding: 15px 32px;
+   text-align: center;
+   text-decoration: none;
+   display: inline-block;
+   font-size: 16px;
+   margin: 4px 2px;
+   cursor: pointer;
+   -webkit-transition-duration: 0.4s; /* Safari */
+   transition-duration: 0.4s;
+}
+.buttonsignout:hover {
+   box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0
+rgba(0,0,0,0.19);
+}
+
+</style>
+   </head>
+<body>
+
+<h1> Test Service Provider</h1>
+Log-in in to check your Attributes.
+<p>
+<a href="https://sp-1.learn.ac.lk/secure"><button class="button
+buttonsignout">Sign In</button></a>
+</p>
+</body>
+</html>
+```
+
+### Errors
 If you got a *Return Parameter is not whitelisted*, comment out the line in `/etc/shibboleth-ds/idpselect_config.js` in your EDS
 
 ```
